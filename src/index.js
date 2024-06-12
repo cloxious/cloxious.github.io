@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import clownAudio from './assets/clown.mp3';
+import sound from './assets/sound.mp3';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDNKToFbU511A_OF5y3l_9I22bqhG8rcsE",
@@ -30,7 +30,7 @@ onValue(ref(database, 'counter'), (snapshot) => {
 
 document.querySelector('button').addEventListener('click', () => {
     const button = document.querySelector('button');
-    const audio = new Audio(clownAudio);
+    const audio = new Audio(sound);
     audio.play().catch(error => {
         console.error('Error playing audio:', error);
     });
