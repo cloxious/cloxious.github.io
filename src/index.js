@@ -1,7 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import sound from './assets/sound.mp3';
+
+import sound01 from './assets/sound-01.mp3';
+import sound02 from './assets/sound-02.mp3';
+import sound03 from './assets/sound-03.mp3';
+
+function randomSound() {
+    const sounds = [sound01, sound02, sound03];
+    return sounds[Math.floor(Math.random() * sounds.length)];
+}
 
 const firebaseConfig = {
     apiKey: "AIzaSyDNKToFbU511A_OF5y3l_9I22bqhG8rcsE",
@@ -28,17 +36,24 @@ onValue(ref(database, 'counter'), (snapshot) => {
     document.querySelector('span').textContent = counter.counter;
 });
 
+const incrementCounter = () => {
+    counter.counter++;
+    set(ref(database, 'counter'), {
+        counter: counter.counter
+    });
+};
+
 document.querySelector('button').addEventListener('click', () => {
     const button = document.querySelector('button');
-    const audio = new Audio(sound);
+    const audio = new Audio(randomSound());
     audio.play().catch(error => {
         console.error('Error playing audio:', error);
     });
     button.disabled = true;
+    button.innerHTML = ".";
     audio.addEventListener('ended', () => {
         button.disabled = false;
+        button.innerHTML = "!";
     });
-    set(ref(database, 'counter'), {
-        counter: counter.counter + 1
-    });
+    incrementCounter();
 });
