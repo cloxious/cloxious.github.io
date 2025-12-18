@@ -1,3 +1,6 @@
 import { defineConfig } from "astro/config";
 
-export default defineConfig({ server: { port: 8080 } });
+export default defineConfig({
+  site: "https://cloxious.com",
+  server: { port: 8080 },
+});
