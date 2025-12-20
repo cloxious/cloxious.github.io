@@ -1,13 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const title = "Home";
+const description =
+  "Full-stack developer with a backend focus. Organized and collaborative, building scalable web apps with clean code and smooth user experiences.";
 ---
 
-<Layout
-  title="Home"
-  description="Computer Science student at Universidad Católica de Honduras specializing in backend development. Explore my portfolio of projects and technical solutions."
-  language="en"
->
-  <main>
-    <h1>Welcome</h1>
-  </main>
+<Layout title={title} description={description}>
+  <!-- Hero section -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-sm mb-2 text-neutral-600 uppercase tracking-widest">Hello, I'm</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">Pablo Sosa</h1>
+      <h2 class="text-2xl md:text-3xl mb-6 text-neutral-700">Computer Science Student</h2>
+      <p class="text-lg max-w-2xl mb-8 text-neutral-600">
+        I'm a full-stack developer who loves working across backend and frontend - though backend is where I shine. I
+        keep things organized and enjoy helping others whenever I can.
+      </p>
+    </div>
+  </section>
 </Layout>
