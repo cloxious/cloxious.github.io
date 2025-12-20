@@ -4,6 +4,39 @@ import Layout from "@/layouts/Layout.astro";
 const title = "Home";
 const description =
   "Full-stack developer with a backend focus. Organized and collaborative, building scalable web apps with clean code and smooth user experiences.";
+
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+}
+
+const projects: Project[] = [
+  {
+    title: "Hardware Store Management & Shopping System",
+    description:
+      "Developed a full-stack solution for a hardware store, including a backend API and a cross-platform mobile application. The system enables employees to manage inventory and internal operations, while customers can browse products and make purchases seamlessly.",
+    technologies: ["Express.js", "MongoDB", "React Native"],
+  },
+  {
+    title: "Bookstore Management & Shopping System",
+    description:
+      "Developed a full-stack web application for a bookstore, featuring a backend API and a web-based frontend. The system enables employees to manage inventory and internal operations, while customers can browse books and make purchases online.",
+    technologies: ["PHP", "MySQL", "HTML", "Tailwind CSS", "JavaScript"],
+  },
+  {
+    title: "Lottery Management & Betting System",
+    description:
+      "Developed a full-stack lottery system with a web application frontend and a backend API. Players can purchase tickets, place bets, and recharge their digital wallets using PayPal, while administrators manage operations, monitor transactions, and control system settings.",
+    technologies: ["React", "Express.js", "MySQL", "PayPal API"],
+  },
+  {
+    title: "Cosmetics Store Web Platform",
+    description:
+      "Built a modern web application for a cosmetics store, leveraging serverless and cloud-native technologies. The platform allows customers to browse products, manage accounts, and make purchases, while administrators can oversee inventory and store operations.",
+    technologies: ["Cloudflare Workers", "Astro", "Tailwind CSS", "Supabase"],
+  },
+];
 ---
 
 <Layout title={title} description={description}>
@@ -17,6 +50,41 @@ const description =
         I'm a full-stack developer who loves working across backend and frontend - though backend is where I shine. I
         keep things organized and enjoy helping others whenever I can.
       </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="mailto:contact@example.com"
+          class="bg-white text-black px-4 py-2 border border-black hover:bg-black hover:text-white">Contact Me</a
+        >
+        <a
+          href="/documents/resume.pdf"
+          download="pablo_sosa_resume.pdf"
+          class="bg-white text-black px-4 py-2 border border-black hover:bg-black hover:text-white">Download Resume</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 uppercase">Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          projects.map((project) => (
+            <div class="bg-white text-black border border-black p-6 hover:bg-black hover:text-white group">
+              <h3 class="text-xl font-bold mb-3">{project.title}</h3>
+              <p class="mb-4 text-sm text-neutral-600 group-hover:text-white">{project.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((technology) => (
+                  <span class="text-xs border border-black group-hover:border-white px-2 py-1 hover:bg-white hover:text-black">
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
 </Layout>
