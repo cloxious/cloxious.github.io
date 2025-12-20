@@ -78,53 +78,42 @@ const projects: Project[] = [
   <section id="projects" class="py-16 px-6 bg-white border-t border-black" aria-label="Featured Projects">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold mb-12 uppercase tracking-tight">Featured Projects</h2>
-      <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
-          projects.map((project) => {
-            const maxTechVisible = 3;
-            const techSlice = project.technologies.slice(0, maxTechVisible);
-            const remaining = project.technologies.length - maxTechVisible;
-
-            return (
-              <li class="flex">
-                <article class="w-full border border-black p-6 hover:bg-black hover:text-white group flex flex-col justify-between transition-colors">
-                  <div>
-                    <h3 class="text-lg font-bold mb-3 uppercase truncate" title={project.title}>
-                      {project.title}
-                    </h3>
-                    <p
-                      class="mb-6 text-sm text-neutral-500 group-hover:text-neutral-400 leading-relaxed line-clamp-2"
-                      title={project.description}
-                    >
-                      {project.description}
-                    </p>
-                    <ul class="flex flex-nowrap items-center gap-2 mb-8 overflow-hidden" aria-label="Technologies used">
-                      {techSlice.map((tech) => (
-                        <li class="text-[10px] font-bold uppercase tracking-wider border border-black group-hover:border-white px-2 py-0.5 whitespace-nowrap">
-                          {tech}
-                        </li>
-                      ))}
-                      {remaining > 0 && (
-                        <li class="text-[10px] font-bold uppercase text-neutral-400 group-hover:text-neutral-300">
-                          +{remaining}
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                  <div class="flex gap-4 text-xs font-bold uppercase tracking-wider pt-4 border-t border-neutral-100 group-hover:border-neutral-800 transition-colors">
-                    <a href="#" class="flex items-center gap-1.5 hover:underline">
-                      <Github size={14} />
-                      View Code
-                    </a>
-                    <a href="#" class="flex items-center gap-1.5 hover:underline">
-                      <ExternalLink size={14} />
-                      View Live
-                    </a>
-                  </div>
-                </article>
-              </li>
-            );
-          })
+          projects.map((project) => (
+            <li class="flex">
+              <article class="w-full border border-black p-6 hover:bg-black hover:text-white group flex flex-col justify-between transition-colors">
+                <div>
+                  <h3 class="text-lg font-bold mb-3 uppercase truncate" title={project.title}>
+                    {project.title}
+                  </h3>
+                  <p
+                    class="mb-6 text-sm text-neutral-500 group-hover:text-neutral-400 leading-relaxed line-clamp-2"
+                    title={project.description}
+                  >
+                    {project.description}
+                  </p>
+                  <ul class="flex flex-nowrap items-center gap-2 mb-8 overflow-hidden" aria-label="Technologies used">
+                    {project.technologies.map((technology) => (
+                      <li class="text-[10px] font-bold uppercase tracking-wider border border-black group-hover:border-white px-2 py-0.5 whitespace-nowrap">
+                        {technology}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="flex gap-4 text-xs font-bold uppercase tracking-wider pt-4 border-t border-neutral-100 group-hover:border-neutral-800 transition-colors">
+                  <a href="#" class="flex items-center gap-1.5 hover:underline">
+                    <Github size={14} />
+                    View Code
+                  </a>
+                  <a href="#" class="flex items-center gap-1.5 hover:underline">
+                    <ExternalLink size={14} />
+                    View Live
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))
         }
       </ul>
     </div>
