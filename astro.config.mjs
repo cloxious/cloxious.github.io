@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://cloxious.com",
-  server: { port: 8080 },
+  server: { port: 8080, host: true },
   i18n: { locales: ["en", "es"], defaultLocale: "en" },
   vite: { plugins: [tailwindcss()] },
 });
