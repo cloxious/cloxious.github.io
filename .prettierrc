@@ -1,1 +1,1 @@
-{ "objectWrap": "collapse", "plugins": ["prettier-plugin-astro"] }
+{ "objectWrap": "collapse" }
