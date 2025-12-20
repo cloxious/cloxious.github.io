@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import { Download, Github, ExternalLink } from "@lucide/astro";
+import { Download, Github, ExternalLink, Code, LayoutDashboard, Database, Globe } from "@lucide/astro";
 
 const title = "Home";
 const description =
@@ -78,7 +78,7 @@ const projects: Project[] = [
   <section id="projects" class="py-16 px-6 bg-white border-t border-black" aria-label="Featured Projects">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold mb-12 uppercase tracking-tight">Featured Projects</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           projects.map((project) => (
             <li class="flex">
@@ -116,6 +116,78 @@ const projects: Project[] = [
           ))
         }
       </ul>
+    </div>
+  </section>
+
+  <!-- Skills section -->
+  <section id="skills" class="py-16 px-6 border-t border-black" aria-label="Skills">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-12 uppercase tracking-tight">Technical Skills</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="border border-black p-6 hover:bg-black hover:text-white group transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <Code size={20} />
+            <h3 class="text-sm font-bold uppercase">Languages</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              ["JavaScript", "TypeScript", "HTML", "CSS", "C++", "Python"].map((skill) => (
+                <span class="border border-black px-2 py-1 text-[10px] font-bold uppercase group-hover:border-white">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="border border-black p-6 hover:bg-black hover:text-white group transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <LayoutDashboard size={20} />
+            <h3 class="text-sm font-bold uppercase">Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              ["Angular", "Astro", "React", "Tailwind CSS"].map((skill) => (
+                <span class="border border-black px-2 py-1 text-[10px] font-bold uppercase group-hover:border-white">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="border border-black p-6 hover:bg-black hover:text-white group transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <Database size={20} />
+            <h3 class="text-sm font-bold uppercase">Databases</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              ["MongoDB", "MySQL", "PostgreSQL", "MS SQL"].map((skill) => (
+                <span class="border border-black px-2 py-1 text-[10px] font-bold uppercase group-hover:border-white">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="border border-black p-6 hover:bg-black hover:text-white group transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <Globe size={20} />
+            <h3 class="text-sm font-bold uppercase">Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              ["Git", "GitHub", "Node.js", "Cloudflare", "Supabase", "Firebase", "Docker"].map((skill) => (
+                <span class="border border-black px-2 py-1 text-[10px] font-bold uppercase group-hover:border-white">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </Layout>
