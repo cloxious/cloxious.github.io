@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
+import { Download } from "@lucide/astro";
+
 const title = "Home";
 const description =
   "Full-stack developer with a backend focus. Organized and collaborative, building scalable web apps with clean code and smooth user experiences.";
@@ -41,25 +43,33 @@ const projects: Project[] = [
 
 <Layout title={title} description={description}>
   <!-- Hero section -->
-  <section class="pt-32 pb-20 px-6">
+  <section class="pt-32 pb-16 px-6" aria-label="Introduction">
     <div class="max-w-6xl mx-auto">
-      <p class="text-sm mb-2 text-neutral-600 uppercase tracking-widest">Hello, I'm</p>
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">Pablo Sosa</h1>
-      <h2 class="text-2xl md:text-3xl mb-6 text-neutral-700">Computer Science Student</h2>
-      <p class="text-lg max-w-2xl mb-8 text-neutral-600">
+      <p class="text-xs mb-3 text-neutral-500 font-bold uppercase tracking-[0.2em]">Hello, I'm</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-tighter leading-none">
+        Pablo Sosa
+      </h1>
+      <h2 class="text-lg sm:text-xl md:text-2xl mb-6 text-neutral-500 font-light max-w-2xl leading-tight">
+        Computer Science Student
+      </h2>
+      <p class="text-base md:text-lg max-w-xl mb-10 text-neutral-600 leading-relaxed italic">
         I'm a full-stack developer who loves working across backend and frontend - though backend is where I shine. I
         keep things organized and enjoy helping others whenever I can.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4">
+      <div class="flex flex-col sm:flex-row gap-3">
         <a
-          href="mailto:contact@example.com"
-          class="bg-white text-black px-4 py-2 border border-black hover:bg-black hover:text-white">Contact Me</a
+          href="#projects"
+          class="border border-black px-6 py-3 bg-white text-black hover:bg-black hover:text-white flex items-center justify-center gap-2 w-full sm:w-auto font-bold uppercase tracking-wide text-xs transition-colors"
+          >View My Work</a
         >
         <a
           href="/documents/resume.pdf"
           download="pablo_sosa_resume.pdf"
-          class="bg-white text-black px-4 py-2 border border-black hover:bg-black hover:text-white">Download Resume</a
+          class="border border-black px-6 py-3 bg-white text-black hover:bg-black hover:text-white flex items-center justify-center gap-2 w-full sm:w-auto font-bold uppercase tracking-wide text-xs transition-colors"
         >
+          <Download size={16} />
+          Download Resume
+        </a>
       </div>
     </div>
   </section>
